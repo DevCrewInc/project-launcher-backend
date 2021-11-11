@@ -52,10 +52,15 @@ enum Enum_FaseProyecto {
     nulo = '',
 }
 
+enum Enum_TipoObjetivo {
+    general = "General",
+    especifico = "Especifico"
+}
+
 enum Enum_EstadoInscripcion {
     aceptada = "Aceptada",
     rechazada = "Rechazada"
 }
 
 
-export { Enum_Rol, Enum_EstadoUsuario, Enum_Facultad, Enum_Semestre, Enum_EstadoProyecto, Enum_FaseProyecto, Enum_EstadoInscripcion }
+export { Enum_Rol, Enum_EstadoUsuario, Enum_Facultad, Enum_Semestre, Enum_EstadoProyecto, Enum_FaseProyecto, Enum_EstadoInscripcion, Enum_TipoObjetivo }
