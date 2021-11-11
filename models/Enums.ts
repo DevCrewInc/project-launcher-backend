@@ -37,7 +37,20 @@ enum Enum_Semestre{
     septimo = "7",
     octavo = "8",
     noveno = "9",
-    decimo = "10"
+    decimo = "10",
 }
 
-export {Enum_Rol,Enum_EstadoUsuario,Enum_Facultad,Enum_Semestre}
+enum Enum_EstadoProyecto{
+    activo = "Activo",
+    inactivo = "Inactivo",
+}
+
+enum Enum_FaseProyecto{
+    iniciado = "Iniciado",
+    desarrollo = "Desarrollo",
+    terminado = "Terminado",
+    nulo = '',
+}
+
+
+export {Enum_Rol,Enum_EstadoUsuario,Enum_Facultad,Enum_Semestre, Enum_EstadoProyecto, Enum_FaseProyecto}
