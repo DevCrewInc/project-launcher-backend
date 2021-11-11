@@ -1,16 +1,16 @@
-enum Enum_Rol{
+enum Enum_Rol {
     estudiante = "Estudiante",
     lider = "Líder",
     administrador = "Administrador"
 }
 
-enum Enum_EstadoUsuario{
+enum Enum_EstadoUsuario {
     pendiente = "Pendiente",
     autorizado = "Autorizado",
     no_autorizado = "No autorizado"
 }
 
-enum Enum_Facultad{
+enum Enum_Facultad {
     artes = "Artes",
     ciencias_agrarias = "Ciencias Agrarias",
     ciencias_economicas = "Ciencias Económicas",
@@ -27,7 +27,7 @@ enum Enum_Facultad{
     salud_publica = "Salud Pública"
 }
 
-enum Enum_Semestre{
+enum Enum_Semestre {
     primero = "1",
     segundo = "2",
     tercero = "3",
@@ -40,17 +40,27 @@ enum Enum_Semestre{
     decimo = "10",
 }
 
-enum Enum_EstadoProyecto{
+enum Enum_EstadoProyecto {
     activo = "Activo",
     inactivo = "Inactivo",
 }
 
-enum Enum_FaseProyecto{
+enum Enum_FaseProyecto {
     iniciado = "Iniciado",
     desarrollo = "Desarrollo",
     terminado = "Terminado",
     nulo = '',
 }
 
+enum Enum_TipoObjetivo {
+    general = "General",
+    especifico = "Especifico"
+}
 
-export {Enum_Rol,Enum_EstadoUsuario,Enum_Facultad,Enum_Semestre, Enum_EstadoProyecto, Enum_FaseProyecto}
+enum Enum_EstadoInscripcion {
+    aceptada = "Aceptada",
+    rechazada = "Rechazada"
+}
+
+
+export { Enum_Rol, Enum_EstadoUsuario, Enum_Facultad, Enum_Semestre, Enum_EstadoProyecto, Enum_FaseProyecto, Enum_EstadoInscripcion, Enum_TipoObjetivo }
