@@ -40,8 +40,6 @@ const main = async () => {
 
     //     console.log('el lider del proyecto es: ', lider);
 };
-    
-
 
     //CREAR UN USUARIO
     // UserModel.create({
@@ -91,6 +89,4 @@ const main = async () => {
     .catch((e) => {
         console.error("Error eliminando al usuario",e);
     })
-
-
 main()
