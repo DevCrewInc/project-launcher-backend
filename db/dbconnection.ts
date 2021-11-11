@@ -5,7 +5,6 @@ dotenv.config({path: "./.env"})// cargando la variable de entorno del .env par a
 
 const connectionString = process.env.DATABASE_CONNECTION_STRING; //me traigo la variable del env
 
-
 const conectarBD = async () => {
 return await connect(connectionString)
 

@@ -20,7 +20,18 @@ const UserSchema = new Schema<User>({
     correo: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        validate: {
+            validator: (email) => {//comprobar que sea un mail
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+                // if(email.includes('@') && email.includes('.')){
+                //     return true;
+                // } else{
+                //     return false;
+                // }
+            },
+            message: 'El formato del email esta incorrecto'
+        }
     },
     identificacion:{
         type: String,
@@ -60,4 +71,5 @@ const UserSchema = new Schema<User>({
 })
 
 const UserModel = model("User", UserSchema);
+
 export {UserModel}
