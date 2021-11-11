@@ -7,24 +7,24 @@ enum Enum_Rol{
 enum Enum_EstadoUsuario{
     pendiente = "Pendiente",
     autorizado = "Autorizado",
-    noAutorizado = "No autorizado"
+    no_autorizado = "No autorizado"
 }
 
 enum Enum_Facultad{
-    Artes = "Artes",
-    CienciasAgrarias = "Ciencias Agrarias",
-    CienciasEconómicas = "Ciencias Económicas",
-    CienciasExactasNaturales = "Ciencias Exactas Naturales",
-    CienciasFarmacéuticasAlimentarias = "Ciencias Farmacéuticas Alimentarias",
-    CienciasSocialesHumanas = "Ciencias Sociales Humanas",
-    Comunicaciones = "Comunicaciones",
-    DerechoCienciasPolíticas = "Derecho Ciencias Políticas",
-    Educación = "Educación",
-    Enfermería = "Enfermería",
-    Ingeniería = "Ingeniería",
-    Medicina = "Medicina",
-    Odontología = "Odontología",
-    SaludPública = "Salud Pública"
+    artes = "Artes",
+    ciencias_agrarias = "Ciencias Agrarias",
+    ciencias_economicas = "Ciencias Económicas",
+    ciencias_exactas_naturales = "Ciencias Exactas Naturales",
+    ciencias_farmaceuticas_alimentarias = "Ciencias Farmacéuticas Alimentarias",
+    ciencias_sociales_humanas = "Ciencias Sociales Humanas",
+    comunicaciones = "Comunicaciones",
+    derecho_ciencias_politicas = "Derecho Ciencias Políticas",
+    educacion = "Educación",
+    enfermeria = "Enfermería",
+    ingenieria = "Ingeniería",
+    medicina = "Medicina",
+    odontologia = "Odontología",
+    salud_publica = "Salud Pública"
 }
 
 enum Enum_Semestre{
