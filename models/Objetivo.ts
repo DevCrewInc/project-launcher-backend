@@ -26,3 +26,7 @@ const ObjetivoSchema = new Schema<Objetivo>({
         required: true
     }
 })
+
+const ObjetivoModel = model('Objetivo', ObjetivoSchema);
+
+export { ObjetivoModel }
