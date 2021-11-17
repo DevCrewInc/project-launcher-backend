@@ -1,43 +1,44 @@
 enum Enum_Rol {
-    estudiante = "Estudiante",
-    lider = "Líder",
-    administrador = "Administrador"
+    ESTUDIANTE = "ESTUDIANTE",
+    LIDER = "LIDER",
+    ADMINISTRADOR = "ADMINISTRADOR"
 }
 
 enum Enum_EstadoUsuario {
-    pendiente = "Pendiente",
-    autorizado = "Autorizado",
-    no_autorizado = "No autorizado"
+    PENDIENTE = 'PENDIENTE',
+    AUTORIZADO = 'AUTORIZADO',
+    NO_AUTORIZADO = 'NO_AUTORIZADO',
 }
 
 enum Enum_Facultad {
-    artes = "Artes",
-    ciencias_agrarias = "Ciencias Agrarias",
-    ciencias_economicas = "Ciencias Económicas",
-    ciencias_exactas_naturales = "Ciencias Exactas Naturales",
-    ciencias_farmaceuticas_alimentarias = "Ciencias Farmacéuticas Alimentarias",
-    ciencias_sociales_humanas = "Ciencias Sociales Humanas",
-    comunicaciones = "Comunicaciones",
-    derecho_ciencias_politicas = "Derecho Ciencias Políticas",
-    educacion = "Educación",
-    enfermeria = "Enfermería",
-    ingenieria = "Ingeniería",
-    medicina = "Medicina",
-    odontologia = "Odontología",
-    salud_publica = "Salud Pública"
+    ARTES = "ARTES",
+    CIENCIAS_AGRARIAS = "CIENCIAS AGRARIAS",
+    CIENCIAS_ECONOMICAS = "CIENCIAS ECONOMICAS",
+    CIENCIAS_EXACTAS_NATURALES = "CIENCIAS EXACTAS NATURALES",
+    CIENCIAS_FARMACEUTICAS_ALIMENTARIAS = "CIENCIAS FARMACEUTICAS ALIMENTARIAS",
+    CIENCIAS_SOCIALES_HUMANAS = "CIENCIAS SOCIALES HUMANAS",
+    COMUNICACIONES = "COMUNICACIONES",
+    DERECHO_CIENCIAS_POLITICAS = "DERECHO CIENCIAS POLITICAS",
+    EDUCACION = "EDUCACION",
+    ENFERMERIA = "ENFERMERIA",
+    INGENIERIA = "INGENIERIA",
+    MEDICINA = "MEDICINA",
+    ODONTOLOGIA = "ODONTOLOGIA",
+    SALUD_PUBLICA = "SALUD PUBLICA"
 }
 
+
 enum Enum_Semestre {
-    primero = "1",
-    segundo = "2",
-    tercero = "3",
-    cuarto = "4",
-    quinto = "5",
-    sexto = "6",
-    septimo = "7",
-    octavo = "8",
-    noveno = "9",
-    decimo = "10",
+    PRIMERO = "PRIMERO",
+    SEGUNDO = "SEGUNDO",
+    TERCERO = "TERCERO ",
+    CUARTO = "CUARTO",
+    QUINTO = "QUINTO",
+    SEXTO = "SEXTO",
+    SEPTIMO = "SEPTIMO",
+    OCTAVO = "OCTAVO",
+    NOVENO = "NOVENO",
+    DECIMO = "DECIMO",
 }
 
 enum Enum_EstadoProyecto {

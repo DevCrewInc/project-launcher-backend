@@ -7,7 +7,7 @@ import { Enum_TipoObjetivo } from './Enums';
 interface Objetivo {
     descripcion: string,
     tipo: Enum_TipoObjetivo,
-    proyecto: Schema.Types.ObjectId
+    proyecto: Schema.Types.ObjectId,
 }
 
 const ObjetivoSchema = new Schema<Objetivo>({

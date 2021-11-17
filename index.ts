@@ -1,15 +1,29 @@
-import * as dotenv from "dotenv";
-import * as express from "express";
-import conectarBD from "./db/dbconnection";
+import express from 'express';
+import cors from 'cors';
+import { ApolloServer } from 'apollo-server-express';
+import dotenv from 'dotenv';
+import conectarBD from './db/dbconnection';
+import { typeDefs } from './graphql/types';
+import { resolvers } from './graphql/resolvers';
 
+dotenv.config();
+
+const server = new ApolloServer({
+  typeDefs: typeDefs,
+  resolvers: resolvers,
+});
 
 const app = express();
-conectarBD();
 
-dotenv.config({path: "./.env"})// cargando la variable de entorno del .env par apoder cargar la base de datos
+app.use(express.json());
 
+app.use(cors());
 
-const PORT = 5000;
+app.listen({ port: process.env.PORT || 5000 }, async () => {
+  await conectarBD();
+  await server.start();
 
-app.listen(PORT)
-console.log("server running on port " + PORT)
+  server.applyMiddleware({ app });
+
+  console.log('servidor listo');
+});
