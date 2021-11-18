@@ -6,7 +6,7 @@ import { ProjectModel } from '../proyecto/Proyectos';
 
 
 interface Inscripcion {
-    proyecto: Schema.Types.ObjectId,
+    proyecto: Schema.Types.ObjectId, //objectid es representado por un string
     estudiante: Schema.Types.ObjectId,
     estado: Enum_EstadoInscripcion,
     fechaIngreso: Date,
@@ -27,17 +27,19 @@ const InscripcionSchema = new Schema<Inscripcion>({
     estado: {
         type: String,
         enum: Enum_EstadoInscripcion,
+        default: Enum_EstadoInscripcion.PENDIENTE,
+        required: true
     },
     fechaIngreso: {
         type: Date,
-        required: true
+        required: false
     },
     fechaEgreso: {
         type: Date,
-        required: true
+        required: false
     }
 });
 
-const InscripcionModel = model('Inscripcion', InscripcionSchema);
+const InscriptionModel = model('Inscription', InscripcionSchema);
 
-export { InscripcionModel }
+export { InscriptionModel }

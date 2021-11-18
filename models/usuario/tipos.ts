@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-express';
-
+// los tipos validan la info y generan la estructura de la coleccion
 
 const tiposUsuario = gql`
 
