@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose';
-import { Enum_EstadoInscripcion } from "./Enums";
+import { Enum_EstadoInscripcion } from "../enums/Enums";
 
-import { UserModel } from './Usuarios';
-import { ProjectModel } from './Proyectos';
+import { UserModel } from '../usuario/Usuarios';
+import { ProjectModel } from '../proyecto/Proyectos';
 
 
 interface Inscripcion {
@@ -27,7 +27,6 @@ const InscripcionSchema = new Schema<Inscripcion>({
     estado: {
         type: String,
         enum: Enum_EstadoInscripcion,
-        default: Enum_EstadoInscripcion.rechazada
     },
     fechaIngreso: {
         type: Date,

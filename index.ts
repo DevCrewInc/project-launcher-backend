@@ -1,28 +1,29 @@
-import * as dotenv from "dotenv";
-import * as express from "express";
-import conectarBD from "./db/dbconnection";
-import { UserModel } from "./models/Usuarios";
-import { Enum_Rol } from "./models/Enums";
-import { Enum_EstadoUsuario } from "./models/Enums";
-import { Enum_Facultad } from "./models/Enums";
-import { Enum_Semestre } from "./models/Enums";
-import { createJsxClosingElement } from "typescript";
-import { ProjectModel } from "./models/project";
-import * as Object from "typescript";
+import express from 'express';
+import cors from 'cors';
+import { ApolloServer } from 'apollo-server-express';
+import dotenv from 'dotenv';
+import conectarBD from './db/dbconnection';
+import { tipos } from './graphql/types';
+import { resolvers } from './graphql/resolvers';
+
+dotenv.config();
+
+const server = new ApolloServer({
+  typeDefs: tipos,
+  resolvers: resolvers,
+});
 
 const app = express();
-conectarBD();
 
-dotenv.config({path: "./.env"})// cargando la variable de entorno del .env par apoder cargar la base de datos
+app.use(express.json());
 
+app.use(cors());
 
-const PORT = 5000;
+app.listen({ port: process.env.PORT || 5000 }, async () => {
+  await conectarBD();
+  await server.start();
 
-app.listen(PORT)
-console.log("server running on port " + PORT)
+  server.applyMiddleware({ app });
 
-
-const main = async () => {
-    await conectarBD();
-}
-main()
+  console.log('servidor listo');
+});

@@ -1,0 +1,67 @@
+enum Enum_Rol {
+    ESTUDIANTE = "ESTUDIANTE",
+    LIDER = "LIDER",
+    ADMINISTRADOR = "ADMINISTRADOR"
+}
+
+enum Enum_EstadoUsuario {
+    PENDIENTE = 'PENDIENTE',
+    AUTORIZADO = 'AUTORIZADO',
+    NO_AUTORIZADO = 'NO_AUTORIZADO',
+}
+
+enum Enum_Facultad {
+    ARTES = "ARTES",
+    CIENCIAS_AGRARIAS = "CIENCIAS_AGRARIAS",
+    CIENCIAS_ECONOMICAS = "CIENCIAS_ECONOMICAS",
+    CIENCIAS_EXACTAS_NATURALES = "CIENCIAS_EXACTAS_NATURALES",
+    CIENCIAS_FARMACEUTICAS_ALIMENTARIAS = "CIENCIAS_FARMACEUTICAS_ALIMENTARIAS",
+    CIENCIAS_SOCIALES_HUMANAS = "CIENCIAS_SOCIALES_HUMANAS",
+    COMUNICACIONES = "COMUNICACIONES",
+    DERECHO_CIENCIAS_POLITICAS = "DERECHO_CIENCIAS_POLITICAS",
+    EDUCACION = "EDUCACION",
+    ENFERMERIA = "ENFERMERIA",
+    INGENIERIA = "INGENIERIA",
+    MEDICINA = "MEDICINA",
+    ODONTOLOGIA = "ODONTOLOGIA",
+    SALUD_PUBLICA = "SALUD_PUBLICA"
+}
+
+
+enum Enum_Semestre {
+    PRIMERO = "PRIMERO",
+    SEGUNDO = "SEGUNDO",
+    TERCERO = "TERCERO ",
+    CUARTO = "CUARTO",
+    QUINTO = "QUINTO",
+    SEXTO = "SEXTO",
+    SEPTIMO = "SEPTIMO",
+    OCTAVO = "OCTAVO",
+    NOVENO = "NOVENO",
+    DECIMO = "DECIMO",
+}
+
+enum Enum_EstadoProyecto {
+    ACTIVO  = "ACTIVO",
+    INACTIVO= "INACTIVO",
+}
+
+enum Enum_FaseProyecto {
+    INICIADO = "INICIADO",
+    DESARROLLO = "DESARROLLO",
+    TERMINADO = "TERMINADO",
+    NULO = '',
+}
+
+enum Enum_TipoObjetivo {
+    GENERAL = "GENERAL",
+    ESPECIFICO = "ESPECIFICO"
+}
+
+enum Enum_EstadoInscripcion {
+    aceptada = "Aceptada",
+    rechazada = "Rechazada"
+}
+
+
+export { Enum_Rol, Enum_EstadoUsuario, Enum_Facultad, Enum_Semestre, Enum_EstadoProyecto, Enum_FaseProyecto, Enum_EstadoInscripcion, Enum_TipoObjetivo }

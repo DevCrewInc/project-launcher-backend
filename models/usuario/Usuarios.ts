@@ -1,5 +1,5 @@
 import {Schema, model} from 'mongoose';
-import {Enum_Rol,Enum_EstadoUsuario,Enum_Facultad,Enum_Semestre} from "./Enums";
+import {Enum_Rol,Enum_EstadoUsuario,Enum_Facultad,Enum_Semestre} from "../enums/Enums";
 
 
 interface User {
@@ -12,8 +12,8 @@ interface User {
     //proyectosLiderados: Proyecto[],
     //inscripciones: Inscripcion[],
     //avancesCreados: Avance[],
-    facultad: string,
-    semestre: string,
+    facultad: Enum_Facultad,
+    semestre: Enum_Semestre,
 }
 
 const UserSchema = new Schema<User>({
@@ -50,13 +50,12 @@ const UserSchema = new Schema<User>({
         type: String,
         required: true,
         enum: Enum_Rol
-
     },
     estado:{
         type: String,
         required: true,
         enum: Enum_EstadoUsuario,
-        default: Enum_EstadoUsuario.pendiente
+        default: Enum_EstadoUsuario.PENDIENTE,
     },
     facultad:{
         type: String,
@@ -72,4 +71,4 @@ const UserSchema = new Schema<User>({
 
 const UserModel = model("User", UserSchema);
 
-export {UserModel}
+export {UserModel};
