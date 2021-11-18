@@ -28,8 +28,8 @@ type Mutation {
     apellido: String!
     identificacion: String!
     correo: String!
-    facultad: Enum_Facultad!
-    semestre: Enum_Semestre!
+    facultad: Enum_Facultad
+    semestre: Enum_Semestre
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
     ): Usuario

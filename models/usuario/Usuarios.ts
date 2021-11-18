@@ -59,12 +59,12 @@ const UserSchema = new Schema<User>({
     },
     facultad:{
         type: String,
-        required: true,
+        required: false,
         enum: Enum_Facultad
     },
     semestre:{
         type: String,
-        required: true,
+        required: false,
         enum: Enum_Semestre
     }
 })
