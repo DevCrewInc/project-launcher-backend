@@ -67,7 +67,13 @@ const UserSchema = new Schema<User>({
         required: false,
         enum: Enum_Semestre
     }
-})
+});
+
+// userSchema.virtual('avances', {
+//     ref: 'Avance',
+//     localField: '_id',
+//     foreignField: 'proyecto',
+// });
 
 const UserModel = model("User", UserSchema);
 
