@@ -50,7 +50,7 @@ enum Enum_FaseProyecto {
     INICIADO = "INICIADO",
     DESARROLLO = "DESARROLLO",
     TERMINADO = "TERMINADO",
-    NULO = '',
+    NULO = "NULO",
 }
 
 enum Enum_TipoObjetivo {

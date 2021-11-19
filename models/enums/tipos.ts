@@ -55,6 +55,7 @@ enum Enum_FaseProyecto {
     DESARROLLO
     TERMINADO
     NULO
+    
 }
 enum Enum_TipoObjetivo {
     GENERAL
