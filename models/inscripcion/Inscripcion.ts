@@ -9,8 +9,8 @@ interface Inscripcion {
     proyecto: Schema.Types.ObjectId, //objectid es representado por un string
     estudiante: Schema.Types.ObjectId,
     estado: Enum_EstadoInscripcion,
-    fechaIngreso: Date,
-    fechaEgreso: Date,
+    fechaIngreso: string,
+    fechaEgreso: string,
 }
 
 const InscripcionSchema = new Schema<Inscripcion>({
@@ -31,11 +31,11 @@ const InscripcionSchema = new Schema<Inscripcion>({
         required: true
     },
     fechaIngreso: {
-        type: Date,
+        type: String,
         required: false
     },
     fechaEgreso: {
-        type: Date,
+        type: String,
         required: false
     }
 });

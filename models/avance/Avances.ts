@@ -4,7 +4,7 @@ import { UserModel} from '../usuario/Usuarios'
 
 
 interface Avance {
-    fecha: Date;
+    fecha: string;
     descripcion: string;
     observaciones: [string];
     proyecto: Schema.Types.ObjectId;
@@ -13,7 +13,7 @@ interface Avance {
 
 const avanceSchema = new Schema<Avance>({
 fecha: {
-    type: Date,
+    type: String,
     required: true,
 },
 descripcion: {

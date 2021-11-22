@@ -15,6 +15,8 @@ type Usuario {
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
     proyectosLiderados: [Proyecto]
+    inscripciones: [Inscripcion]
+    avancesCreados: [Avance]
 }
 
 

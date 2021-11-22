@@ -3,7 +3,7 @@ import { UserModel } from "./Usuarios"
 const resolversUsuario = {
     Query: {
     Usuarios: async (parent, args) => { // es el usuario que se creó en query en types
-        const usuarios = await UserModel.find().populate('proyectosLiderados');
+        const usuarios = await UserModel.find().populate('proyectosLiderados').populate('inscripciones').populate('avancesCreados');
         return usuarios;
     },
 
@@ -41,7 +41,7 @@ const resolversUsuario = {
                 semestre: args.semestre,
                 rol: args.rol,
                 estado: args.estado,
-            });
+            },{new: true});
 
             return usuarioEditado;
         },
