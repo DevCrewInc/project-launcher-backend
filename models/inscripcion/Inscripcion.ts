@@ -17,7 +17,7 @@ const InscripcionSchema = new Schema<Inscripcion>({
     proyecto: {
         type: Schema.Types.ObjectId,
         ref: ProjectModel,
-        required: true
+        required: true,
     },
     estudiante: {
         type: Schema.Types.ObjectId,

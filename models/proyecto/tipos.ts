@@ -14,6 +14,8 @@ input crearObjetivo {
     tipo: Enum_TipoObjetivo!
 }
 
+
+
 type Proyecto {
     _id: ID!
     nombre: String!
@@ -45,10 +47,10 @@ type Mutation {
 
 
     editarProyectoLider(
-    _id: String!
-    nombre: String!
-    presupuesto: Float!
-    objetivos: [crearObjetivo]!
+        _id: String!
+        nombre: String!
+        presupuesto: Float!
+        objetivos: [crearObjetivo]!
 
     ): Proyecto
 

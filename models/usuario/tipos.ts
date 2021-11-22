@@ -14,6 +14,7 @@ type Usuario {
     semestre: Enum_Semestre!
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
+    proyectosLiderados: [Proyecto]
 }
 
 
@@ -44,6 +45,7 @@ type Mutation {
     semestre: Enum_Semestre!
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
+   
     ): Usuario
 
     eliminarUsuario(_id: String, correo: String): Usuario

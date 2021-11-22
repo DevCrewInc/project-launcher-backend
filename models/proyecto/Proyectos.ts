@@ -11,10 +11,6 @@ interface Project {
   lider: Schema.Types.ObjectId,
   estadoProyecto: Enum_EstadoProyecto,
   faseProyecto: Enum_FaseProyecto,
-
-  
-  // inscripciones: Inscripcion[],
-  // avances: Avance[],
 }
 
 const ProjectSchema = new Schema<Project>({
@@ -80,8 +76,6 @@ ProjectSchema.virtual('inscripciones', {
   localField: '_id',
   foreignField: 'proyecto',
 });
-
-
 
 
 
