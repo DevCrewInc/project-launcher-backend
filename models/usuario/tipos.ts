@@ -25,6 +25,7 @@ type Query {
     Usuario(_id: String!): Usuario
 }
 
+
 type Mutation {
     crearUsuario(
     nombre: String!
@@ -47,6 +48,7 @@ type Mutation {
     semestre: Enum_Semestre!
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
+
    
     ): Usuario
 

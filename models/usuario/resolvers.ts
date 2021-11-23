@@ -32,6 +32,8 @@ const resolversUsuario = {
         },
 
         editarUsuario: async (parent, args) => {
+            // const liderProyecto = await UserModel.findOne({_id: args._id }).populate('proyectosLiderados')
+            // console.log( JSON.stringify(liderProyecto))
             const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
                 nombre: args.nombre,
                 apellido: args.apellido,
@@ -41,6 +43,7 @@ const resolversUsuario = {
                 semestre: args.semestre,
                 rol: args.rol,
                 estado: args.estado,
+
             },{new: true});
 
             return usuarioEditado;
