@@ -17,9 +17,10 @@ const resolverInscripciones = {
             return inscripcionCreada;
         },
 
-        editarEstado: async (parent, args) =>{
-            const busquedaProyecto = await InscriptionModel.findOne({proyecto: args.proyecto}).populate('proyecto')
-            const proyecto = JSON.parse(JSON.stringify(busquedaProyecto.proyecto))
+        editarEstadoInscripcion: async (parent, args) =>{
+            // const busquedaProyecto = await InscriptionModel.findOne({proyecto: args.proyecto}).populate('proyecto')
+            // const estadoProyecto = JSON.parse(JSON.stringify(busquedaProyecto.proyecto)).estadoProyecto
+
             
             if(args.estado === "ACEPTADA" ){
                 const inscripcionActualizada = await InscriptionModel.findByIdAndUpdate(args._id,{
@@ -28,13 +29,15 @@ const resolverInscripciones = {
                 },{new:true});
                 return inscripcionActualizada;
             }
-            else{
+            else if(args.estado === "RECHAZADA" ){
                 const inscripcionActualizada = await InscriptionModel.findByIdAndUpdate(args._id,{
                     estado: args.estado,
                     fechaEgreso: new Date().toISOString().split("T")[0],
                 },{new:true});
                 return inscripcionActualizada;
             }
+
+            
 
         }
     },

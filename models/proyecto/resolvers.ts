@@ -1,4 +1,5 @@
 import { Enum_EstadoProyecto, Enum_FaseProyecto, Enum_Semestre } from "../enums/Enums";
+import { InscriptionModel } from "../inscripcion/Inscripcion";
 import { ProjectModel } from "./Proyectos";
 
 const resolversProyecto = {
@@ -45,15 +46,27 @@ const resolversProyecto = {
             return proyectoEditado;
         }
 
-        else if (args.faseProyecto==='DESARROLLO'&& args.estadoProyecto==='ACTIVO'){
+        else if( args.estadoProyecto==='ACTIVO' && args.faseProyecto==='DESARROLLO' || args.faseProyecto==='DESARROLLO'&& args.estadoProyecto==='ACTIVO'){
             const proyectoEditado= await ProjectModel.findByIdAndUpdate(args._id,{
+                estadoProyecto:args.estadoProyecto,
                 faseProyecto: args.faseProyecto
-                
-            },{new:true})
-            return proyectoEditado;
+            },{new:true});
+            return proyectoEditado
         }
 
+        // else if (args.faseProyecto==='DESARROLLO'&& args.estadoProyecto==='ACTIVO'){
+        //     const proyectoEditado= await ProjectModel.findByIdAndUpdate(args._id,{
+        //         faseProyecto: args.faseProyecto
+                
+        //     },{new:true})
+        //     return proyectoEditado;
+        // }
+
         else if(args.faseProyecto==='TERMINADO' && args.estadoProyecto==='ACTIVO'){
+        
+            const edicionInscripciones = await InscriptionModel.updateMany({proyecto: args._id},{
+                fechaEgreso: new Date().toISOString().split("T")[0],
+            })
             const proyectoEditado= await ProjectModel.findByIdAndUpdate(args._id,{
                 estadoProyecto:Enum_EstadoProyecto.INACTIVO,
                 faseProyecto: args.faseProyecto,
@@ -68,7 +81,9 @@ const resolversProyecto = {
             },{new:true});
             return proyectoEditado
         }
-        else if(args.estadoProyecto==='ACTIVO' && args.faseProyecto==='DESARROLLO' || args.estadoProyecto==='ACTIVO' && args.faseProyecto==='INICIADO'){
+
+       
+        else if( args.estadoProyecto==='ACTIVO' && args.faseProyecto==='INICIADO'){
             const proyectoEditado= await ProjectModel.findByIdAndUpdate(args._id,{
                 estadoProyecto:args.estadoProyecto
             },{new:true});

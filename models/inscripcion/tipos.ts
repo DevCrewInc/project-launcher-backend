@@ -21,10 +21,9 @@ type Mutation {
         estudiante: String!
     ): Inscripcion
 
-    editarEstado(
+    editarEstadoInscripcion(
         _id: ID!
         estado: Enum_EstadoInscripcion!
-        proyecto: String!
     ): Inscripcion
 }
 

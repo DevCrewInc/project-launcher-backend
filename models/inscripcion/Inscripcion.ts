@@ -3,6 +3,7 @@ import { Enum_EstadoInscripcion } from "../enums/Enums";
 
 import { UserModel } from '../usuario/Usuarios';
 import { ProjectModel } from '../proyecto/Proyectos';
+import { tiposProyecto } from '../proyecto/tipos';
 
 
 interface Inscripcion {
@@ -40,6 +41,9 @@ const InscripcionSchema = new Schema<Inscripcion>({
     }
 });
 
+
+
 const InscriptionModel = model('Inscription', InscripcionSchema);
+
 
 export { InscriptionModel }

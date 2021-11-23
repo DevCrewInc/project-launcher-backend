@@ -20,8 +20,8 @@ type Proyecto {
     _id: ID!
     nombre: String!
     presupuesto: Float!
-    fechaInicio: String!
-    fechaFin: String!
+    fechaInicio: String
+    fechaFin: String
     estadoProyecto: Enum_EstadoProyecto!
     faseProyecto: Enum_FaseProyecto!
     lider: Usuario!
