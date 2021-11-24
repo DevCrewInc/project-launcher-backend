@@ -32,6 +32,7 @@ type Proyecto {
 
 type Query {
     Proyectos: [Proyecto]
+    SolicitudesNuevosProyectos: [Proyecto]
 }
 
 type Mutation {

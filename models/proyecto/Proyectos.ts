@@ -24,11 +24,11 @@ const ProjectSchema = new Schema<Project>({
   },
   fechaInicio: {
     type: String,
-    required: false,
+    default: "NO INICIADO"
   },
   fechaFin: {
     type: String,
-    required: false,
+    default: "NO FINALIZADO"
   },
   lider: {
     type: Schema.Types.ObjectId,

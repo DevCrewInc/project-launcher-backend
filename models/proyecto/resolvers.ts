@@ -8,6 +8,10 @@ const resolversProyecto = {
         const proyectos = await ProjectModel.find().populate('lider').populate('avances').populate('inscripciones');
         return proyectos;
     },
+    SolicitudesNuevosProyectos: async (parent, args) =>{
+        const proyectosEnEspera = await ProjectModel.find({faseProyecto: Enum_FaseProyecto.NULO});
+        return proyectosEnEspera;
+    }
     },
     Mutation: {
     crearProyecto: async (parent, args) => {
