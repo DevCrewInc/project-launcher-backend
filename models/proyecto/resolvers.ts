@@ -9,7 +9,7 @@ const resolversProyecto = {
         return proyectos;
     },
     SolicitudesNuevosProyectos: async (parent, args) =>{
-        const proyectosEnEspera = await ProjectModel.find({faseProyecto: Enum_FaseProyecto.NULO});
+        const proyectosEnEspera = await ProjectModel.find({faseProyecto: Enum_FaseProyecto.NULO}).populate('lider');
         return proyectosEnEspera;
     }
     },
