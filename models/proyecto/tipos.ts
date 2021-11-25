@@ -14,8 +14,6 @@ input crearObjetivo {
     tipo: Enum_TipoObjetivo!
 }
 
-
-
 type Proyecto {
     _id: ID!
     nombre: String!

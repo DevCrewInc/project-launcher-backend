@@ -36,9 +36,9 @@ const UserSchema = new Schema<User>({
         unique: true,
     },
     nombre:{
-        type: String,
-        required: true,
-    },
+            type: String,
+            required: true,
+        },
     apellido:{
         type: String,
         required: true
