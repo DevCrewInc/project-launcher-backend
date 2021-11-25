@@ -4,20 +4,31 @@ import { ProjectModel } from "./Proyectos";
 
 const resolversProyecto = {
     Query: {
-    ProyectosAdmin: async (parent, args) => {
+ //ADMIN   
+    ListaProyectosAdmin: async (parent, args) => {
         const proyectos = await ProjectModel.find().populate('lider').populate('avances').populate('inscripciones');
         return proyectos;
     },
-
-    ProyectosEstudiante: async (parent, args) => {
+    SolicitudesNuevosProyectos: async (parent, args) =>{
+        const proyectos = await ProjectModel.find({faseProyecto: Enum_FaseProyecto.NULO}).populate('lider');
+        return proyectos;
+    },
+//ESTUDIANTE
+    ListaProyectosEstudiante: async (parent, args) => {
         const proyectos = await ProjectModel.find({estadoProyecto: Enum_EstadoProyecto.ACTIVO, faseProyecto: Enum_FaseProyecto.INICIADO && Enum_FaseProyecto.DESARROLLO}).populate('lider').populate('avances').populate('inscripciones');
         return proyectos;
     },
+    ProyectosEstudiante: async (parent, args) => {
+        const misProyectos = await ProjectModel.find().populate('inscripciones').find({estudiante: args._id});
+        return misProyectos;
+    },
 
-    SolicitudesNuevosProyectos: async (parent, args) =>{
-        const proyectosEnEspera = await ProjectModel.find({faseProyecto: Enum_FaseProyecto.NULO}).populate('lider');
-        return proyectosEnEspera;
-    }
+//LIDER
+    ProyectosLider: async (parent, args) => {
+        const proyectos = await ProjectModel.find({lider: args._id}).populate('lider').populate('avances').populate('inscripciones');
+        return proyectos;
+    },
+
     },
     Mutation: {
     crearProyecto: async (parent, args) => {

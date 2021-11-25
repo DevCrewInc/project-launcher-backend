@@ -29,9 +29,12 @@ type Proyecto {
 }  
 
 type Query {
-    ProyectosAdmin: [Proyecto]
-    ProyectosEstudiante: [Proyecto]
+    ListaProyectosAdmin: [Proyecto]
+    ListaProyectosEstudiante: [Proyecto]
+    ProyectosEstudiante (_id: String!): [Proyecto]
+    ProyectosLider (_id: String!): [Proyecto]
     SolicitudesNuevosProyectos: [Proyecto]
+    
 }
 
 type Mutation {
