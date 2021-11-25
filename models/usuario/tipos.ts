@@ -54,7 +54,7 @@ type Mutation {
    
     ): Usuario
 
-    eliminarUsuario(_id: String, correo: String): Usuario
+    eliminarUsuario(_id: String): Usuario
     
     }
 `;

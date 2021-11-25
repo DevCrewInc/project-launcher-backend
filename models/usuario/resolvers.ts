@@ -4,7 +4,7 @@ import { UserModel } from "./Usuarios"
 const resolversUsuario = {
     Query: {
     Usuarios: async (parent, args) => { // es el usuario que se creó en query en types
-        const usuarios = await UserModel.find().populate({
+        const usuarios = await UserModel.find({eliminado: false}).populate({
             path:'proyectosLiderados',
             populate: {path:'avances', populate: 'creadoPor'}
         }).populate('inscripciones').populate('avancesCreados');
@@ -60,13 +60,10 @@ const resolversUsuario = {
         },
 
         eliminarUsuario: async (parent, args) =>{
-            if (Object.keys(args).includes('_id')){
-                const usuarioEliminado = await UserModel.findOneAndDelete({ _id: args._id});
+                const usuarioEliminado = await UserModel.findByIdAndUpdate(args._id,{
+                    eliminado: true});
                 return usuarioEliminado;
-            }else if(Object.keys(args).includes('correo')){
-                const usuarioEliminado = await UserModel.findOneAndDelete({ correo: args.correo});
-                return usuarioEliminado;
-            }
+            
         },
     },
 };

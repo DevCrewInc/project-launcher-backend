@@ -11,6 +11,7 @@ interface User {
     estado: Enum_EstadoUsuario,
     facultad: Enum_Facultad,
     semestre: Enum_Semestre,
+    eliminado: boolean
 }
 
 const UserSchema = new Schema<User>({
@@ -63,6 +64,10 @@ const UserSchema = new Schema<User>({
         type: String,
         required: false,
         enum: Enum_Semestre
+    },
+    eliminado:{
+        type: Boolean,
+        default: false,
     }
 },
 {
