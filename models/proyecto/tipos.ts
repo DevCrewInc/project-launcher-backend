@@ -29,7 +29,8 @@ type Proyecto {
 }  
 
 type Query {
-    Proyectos: [Proyecto]
+    ProyectosAdmin: [Proyecto]
+    ProyectosEstudiante: [Proyecto]
     SolicitudesNuevosProyectos: [Proyecto]
 }
 

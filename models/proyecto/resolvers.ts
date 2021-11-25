@@ -4,10 +4,16 @@ import { ProjectModel } from "./Proyectos";
 
 const resolversProyecto = {
     Query: {
-    Proyectos: async (parent, args) => {
+    ProyectosAdmin: async (parent, args) => {
         const proyectos = await ProjectModel.find().populate('lider').populate('avances').populate('inscripciones');
         return proyectos;
     },
+
+    ProyectosEstudiante: async (parent, args) => {
+        const proyectos = await ProjectModel.find({estadoProyecto: Enum_EstadoProyecto.ACTIVO, faseProyecto: Enum_FaseProyecto.INICIADO && Enum_FaseProyecto.DESARROLLO}).populate('lider').populate('avances').populate('inscripciones');
+        return proyectos;
+    },
+
     SolicitudesNuevosProyectos: async (parent, args) =>{
         const proyectosEnEspera = await ProjectModel.find({faseProyecto: Enum_FaseProyecto.NULO}).populate('lider');
         return proyectosEnEspera;
