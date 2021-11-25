@@ -1,3 +1,4 @@
+import { Enum_EstadoUsuario } from "../enums/Enums";
 import { UserModel } from "./Usuarios"
 
 const resolversUsuario = {
@@ -10,11 +11,16 @@ const resolversUsuario = {
         
         return usuarios;
     },
-    
     Usuario: async (parent, args) => {
         const usuario = await UserModel.findOne({ _id: args._id });
         return usuario;
     },
+    
+    SolicitudesNuevosUsuarios: async (parent, args) =>{
+        const usuariosEnEspera = await UserModel.find({ estado: Enum_EstadoUsuario.PENDIENTE});
+        return usuariosEnEspera;
+    }
+
     },
     Mutation: {
         crearUsuario: async (parent, args) => {

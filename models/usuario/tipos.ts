@@ -23,6 +23,8 @@ type Usuario {
 type Query {
     Usuarios: [Usuario]
     Usuario(_id: String!): Usuario
+    SolicitudesNuevosUsuarios: [Usuario]
+
 }
 
 
