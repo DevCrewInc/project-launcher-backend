@@ -3,6 +3,7 @@ import { UserModel } from "./Usuarios"
 
 const resolversUsuario = {
     Query: {
+        
     Usuarios: async (parent, args) => { // es el usuario que se creó en query en types
         const usuarios = await UserModel.find({eliminado: false}).populate({
             path:'proyectosLiderados',

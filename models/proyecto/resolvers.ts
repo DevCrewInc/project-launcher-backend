@@ -15,7 +15,7 @@ const resolversProyecto = {
     },
 //ESTUDIANTE
     ListaProyectosEstudiante: async (parent, args) => {
-        const proyectos = await ProjectModel.find({estadoProyecto: Enum_EstadoProyecto.ACTIVO, faseProyecto: Enum_FaseProyecto.INICIADO && Enum_FaseProyecto.DESARROLLO}).populate('lider').populate('avances').populate('inscripciones');
+        const proyectos = await ProjectModel.find({estadoProyecto: Enum_EstadoProyecto.ACTIVO, faseProyecto: Enum_FaseProyecto.INICIADO || Enum_FaseProyecto.DESARROLLO}).populate('lider').populate('avances').populate('inscripciones');
         return proyectos;
     },
     ProyectosEstudiante: async (parent, args) => {
