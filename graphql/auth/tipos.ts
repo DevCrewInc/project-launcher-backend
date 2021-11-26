@@ -16,11 +16,12 @@ type Mutation {
       estado: Enum_EstadoUsuario
       contrasena: String!
     ):Token!
-   
-  }
-  login(
+
+    login(
     correo: String!
     contrasena:String!
-  ):Token
+  ):Token!
+  }
+ 
 `;
 export { tiposAutenticacion };
