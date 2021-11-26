@@ -6,11 +6,11 @@ interface User {
     correo: string,
     identificacion: string,
     nombre: string,
-    apellido: string,
     rol: Enum_Rol,
     estado: Enum_EstadoUsuario,
     facultad: Enum_Facultad,
     semestre: Enum_Semestre,
+    contrasena: string,
     eliminado: boolean
 }
 
@@ -40,10 +40,7 @@ const UserSchema = new Schema<User>({
             type: String,
             required: true,
         },
-    apellido:{
-        type: String,
-        required: true
-    },
+  
     rol:{
         type: String,
         required: true,
@@ -65,6 +62,11 @@ const UserSchema = new Schema<User>({
         required: false,
         enum: Enum_Semestre
     },
+    contrasena:{
+        type:String,
+        required:true,
+    },
+
     eliminado:{
         type: Boolean,
         default: false,

@@ -2,5 +2,6 @@ import { resolversProyecto } from "../models/proyecto/resolvers";
 import { resolversUsuario } from "../models/usuario/resolvers";
 import { resolversAvance } from "../models/avance/resolvers";
 import { resolverInscripciones } from "../models/inscripcion/resolvers";
+import {resolversAutenticacion} from './auth/resolvers'
 
-export const resolvers = [resolversUsuario,resolversProyecto,resolversAvance, resolverInscripciones];
+export const resolvers = [resolversUsuario,resolversProyecto,resolversAvance, resolverInscripciones, resolversAutenticacion];
