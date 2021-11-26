@@ -27,7 +27,6 @@ const resolversUsuario = {
         crearUsuario: async (parent, args) => {
         const usuarioCreado = await UserModel.create({
             nombre: args.nombre,
-            apellido: args.apellido,
             identificacion: args.identificacion,
             correo: args.correo,
             facultad: args.facultad,
@@ -47,7 +46,6 @@ const resolversUsuario = {
             // console.log( JSON.stringify(liderProyecto))
             const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
                 nombre: args.nombre,
-                apellido: args.apellido,
                 identificacion: args.identificacion,
                 correo: args.correo,
                 facultad: args.facultad,
