@@ -1,18 +1,18 @@
 import { UserModel } from "../../models/usuario/Usuarios";
-// import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt';
 // import { generateToken } from '../../utils/tokenUtils.js';
 
 const resolversAutenticacion = {
   Mutation: {
     registro: async (parent, args) => {
-    //   const salt = await bcrypt.genSalt(10);
-    //   const hashedPassword = await bcrypt.hash(args.password, salt);
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(args.contrasena, salt);
       const usuarioCreado = await UserModel.create({
         nombre: args.nombre,
         identificacion: args.identificacion,
         correo: args.correo,
         rol: args.rol,
-        contrasena: args.contrasena,
+        contrasena: hashedPassword,
       });
       return("usuario registrado con éxito")
     //   console.log('usuario creado', usuarioCreado);
