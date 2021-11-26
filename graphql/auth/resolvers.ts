@@ -3,26 +3,6 @@ import bcrypt from 'bcrypt';
 import { generateToken } from '../../utils/tokenUtils';
 
 const resolversAutenticacion = {
-  
-  Query: {
-
-    login: async (parent, args) => {
-      const usuarioEncontrado = await UserModel.findOne({ correo: args.correo });
-      if (await bcrypt.compare(args.contrasena, usuarioEncontrado.contrasena)) {
-        return {
-          token: generateToken({
-            _id: usuarioEncontrado._id,
-            nombre: usuarioEncontrado.nombre,
-            identificacion: usuarioEncontrado.identificacion,
-            correo: usuarioEncontrado.correo,
-            rol: usuarioEncontrado.rol,
-          }),
-        };
-      }
-    },
-
-  },
-  
   Mutation: {
     registro: async (parent, args) => {
       const salt = await bcrypt.genSalt(10);
@@ -47,7 +27,20 @@ const resolversAutenticacion = {
       };
     },
 
-
+    login: async (parent, args) => {
+      const usuarioEncontrado = await UserModel.findOne({ correo: args.correo });
+      if (await bcrypt.compare(args.contrasena, usuarioEncontrado.contrasena)) {
+        return {
+          token: generateToken({
+            _id: usuarioEncontrado._id,
+            nombre: usuarioEncontrado.nombre,
+            identificacion: usuarioEncontrado.identificacion,
+            correo: usuarioEncontrado.correo,
+            rol: usuarioEncontrado.rol,
+          }),
+        };
+      }
+    },
 
     // refreshToken: async (parent, args, context) => {
     //   console.log('contexto', context);
