@@ -15,7 +15,7 @@ input crearObjetivo {
 }
 
 type Proyecto {
-    _id: ID!
+   _id : ID!
     nombre: String!
     presupuesto: Float!
     fechaInicio: String
@@ -61,6 +61,13 @@ type Mutation {
         _id:String!
         estadoProyecto:Enum_EstadoProyecto!
         faseProyecto:Enum_FaseProyecto!
+    ): Proyecto
+
+
+    crearObjetivo(
+        _id: String!
+        descripcion: String!
+        tipo: Enum_TipoObjetivo!
     ): Proyecto
 
 }
