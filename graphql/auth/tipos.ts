@@ -18,5 +18,9 @@ type Mutation {
     ):Token!
    
   }
+  login(
+    correo: String!
+    contrasena:String!
+  ):Token
 `;
 export { tiposAutenticacion };

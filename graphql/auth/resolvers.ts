@@ -27,21 +27,20 @@ const resolversAutenticacion = {
       };
     },
 
-    // login: async (parent, args) => {
-    //   const usuarioEcontrado = await UserModel.findOne({ correo: args.correo });
-    //   if (await bcrypt.compare(args.password, usuarioEcontrado.password)) {
-    //     return {
-    //       token: generateToken({
-    //         _id: usuarioEcontrado._id,
-    //         nombre: usuarioEcontrado.nombre,
-    //         apellido: usuarioEcontrado.apellido,
-    //         identificacion: usuarioEcontrado.identificacion,
-    //         correo: usuarioEcontrado.correo,
-    //         rol: usuarioEcontrado.rol,
-    //       }),
-    //     };
-    //   }
-    // },
+    login: async (parent, args) => {
+      const usuarioEncontrado = await UserModel.findOne({ correo: args.correo });
+      if (await bcrypt.compare(args.contrasena, usuarioEncontrado.contrasena)) {
+        return {
+          token: generateToken({
+            _id: usuarioEncontrado._id,
+            nombre: usuarioEncontrado.nombre,
+            identificacion: usuarioEncontrado.identificacion,
+            correo: usuarioEncontrado.correo,
+            rol: usuarioEncontrado.rol,
+          }),
+        };
+      }
+    },
 
     // refreshToken: async (parent, args, context) => {
     //   console.log('contexto', context);
