@@ -1,6 +1,6 @@
 import { UserModel } from "../../models/usuario/Usuarios";
 import bcrypt from 'bcrypt';
-// import { generateToken } from '../../utils/tokenUtils.js';
+import { generateToken } from '../../utils/tokenUtils.js';
 
 const resolversAutenticacion = {
   Mutation: {
@@ -14,17 +14,17 @@ const resolversAutenticacion = {
         rol: args.rol,
         contrasena: hashedPassword,
       });
-      return("usuario registrado con éxito")
-    //   console.log('usuario creado', usuarioCreado);
-    //   return {
-    //     token: generateToken({
-    //       _id: usuarioCreado._id,
-    //       nombre: usuarioCreado.nombre,
-    //       identificacion: usuarioCreado.identificacion,
-    //       correo: usuarioCreado.correo,
-    //       rol: usuarioCreado.rol,
-    //     }),
-    //   };
+     
+      console.log('usuario creado', usuarioCreado);
+      return {
+        token: generateToken({
+          _id: usuarioCreado._id,
+          nombre: usuarioCreado.nombre,
+          identificacion: usuarioCreado.identificacion,
+          correo: usuarioCreado.correo,
+          rol: usuarioCreado.rol,
+        }),
+      };
     },
 
     // login: async (parent, args) => {
