@@ -5,7 +5,12 @@ const tiposAutenticacion = gql`
      token: String
      error: String
 }
-
+type Query{
+  login(
+    correo: String!
+    contrasena:String!
+  ):Token!
+}
 
 type Mutation {
     registro(
@@ -17,10 +22,7 @@ type Mutation {
       contrasena: String!
     ):Token!
 
-    login(
-    correo: String!
-    contrasena:String!
-  ):Token!
+
   }
  
 `;
