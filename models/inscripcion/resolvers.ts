@@ -19,7 +19,7 @@ const resolverInscripciones = {
 
         editarEstadoInscripcion: async (parent, args) =>{
             // const busquedaProyecto = await InscriptionModel.findOne({proyecto: args.proyecto}).populate('proyecto')
-            // const estadoProyecto = JSON.parse(JSON.stringify(busquedaProyecto.proyecto)).estadoProyecto
+            // const estadoProyecto =   (JSON.stringify(busquedaProyecto.proyecto)).estadoProyecto
 
             
             if(args.estado === "ACEPTADA" ){

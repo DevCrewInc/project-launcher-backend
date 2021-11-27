@@ -42,7 +42,7 @@ const resolversAutenticacion = {
        
       }
       else{
-          return null
+          return "null"
       }
     },
 
