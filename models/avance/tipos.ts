@@ -12,7 +12,7 @@ type Avance {
 
 type Query {
     Avances: [Avance]
-    filtrarAvance(_id: String!): [Avance]
+    filtrarAvance(_id: String!): Avance
 }
 
 type Mutation {
@@ -31,6 +31,17 @@ type Mutation {
         _id: ID,
         creadoPor: String
     ): Avance
+
+    crearObservacion(
+        _id: String!
+        descripcion: String!
+    ): Avance
+
+    # editarObservacion(
+    #     _id: String!
+    #     _id:
+    #     descripcion: String!
+    # ): Avance
 }
 `;
 

@@ -102,8 +102,7 @@ const resolversProyecto = {
             },{new:true});
             return proyectoEditado
         }
-
-       
+        
         else if( args.estadoProyecto==='ACTIVO' && args.faseProyecto==='INICIADO'){
             const proyectoEditado= await ProjectModel.findByIdAndUpdate(args._id,{
                 estadoProyecto:args.estadoProyecto

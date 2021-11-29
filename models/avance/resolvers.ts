@@ -42,8 +42,23 @@ Mutation: {
             return usuarioEliminado;
         }
     },
-},
-}; 
 
+    crearObservacion: async (parent, args) => {
+        const observacionCreada = await ModeloAvance.findByIdAndUpdate(args._id,{
+            $addToSet: {
+                observaciones: {
+                    descripcion: args.descripcion,
+                }
+            } 
+        },{new:true});
+        return observacionCreada;
+    }
+    },
+
+    // editarObservacion: async (parent, args) => {
+    //     const observacionEditada = await ModeloAvance.findById(args._id)
+    // return observacionEditada;
+    // },
+}; 
 
 export { resolversAvance };

@@ -22,9 +22,13 @@ descripcion: {
 },
 observaciones: [
     {
-    type: String,
-    },
+        descripcion: {
+            type: String,
+            required: true,
+        },
+    }
 ],
+
 proyecto: {
     type: Schema.Types.ObjectId,
     ref: ProjectModel,
