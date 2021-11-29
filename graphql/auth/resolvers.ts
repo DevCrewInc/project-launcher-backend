@@ -39,6 +39,10 @@ const resolversAutenticacion = {
             rol: usuarioEncontrado.rol,
           }),
         };
+       
+      }
+      else{
+          return "null"
       }
     },
 
