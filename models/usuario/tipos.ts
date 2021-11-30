@@ -16,13 +16,16 @@ type Usuario {
     proyectosLiderados: [Proyecto]
     inscripciones: [Inscripcion]
     avancesCreados: [Avance]
+    
 }
 
 
 type Query {
     Usuarios: [Usuario]
     Usuario(_id: String!): Usuario
+    Estudiantes:[Usuario]
     SolicitudesNuevosUsuarios: [Usuario]
+    SolicitudesNuevosEstudiantes:[Usuario]
 
 }
 

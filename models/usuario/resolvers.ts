@@ -1,9 +1,9 @@
-import { Enum_EstadoUsuario } from "../enums/Enums";
+import { Enum_EstadoUsuario, Enum_Rol } from "../enums/Enums";
 import { UserModel } from "./Usuarios"
 
 const resolversUsuario = {
     Query: {
-        
+      //ADMIN  
     Usuarios: async (parent, args) => { // es el usuario que se creó en query en types
         const usuarios = await UserModel.find({eliminado: false}).populate({
             path:'proyectosLiderados',
@@ -16,13 +16,24 @@ const resolversUsuario = {
         const usuario = await UserModel.findOne({ _id: args._id });
         return usuario;
     },
+
     
     SolicitudesNuevosUsuarios: async (parent, args) =>{
         const usuariosEnEspera = await UserModel.find({ estado: Enum_EstadoUsuario.PENDIENTE});
         return usuariosEnEspera;
-    }
+    },
+    //LIDER  
+
+    SolicitudesNuevosEstudiantes: async (parent, args) =>{
+        const usuariosEnEspera = await UserModel.find({ estado: Enum_EstadoUsuario.PENDIENTE, rol:Enum_Rol.ESTUDIANTE});
+        return usuariosEnEspera;
+    },
+    Estudiantes: async (parent, args) =>{
+        const usuariosEnEspera = await UserModel.find({ estado: Enum_EstadoUsuario.AUTORIZADO, rol:Enum_Rol.ESTUDIANTE,eliminado: false});
+        return usuariosEnEspera;
 
     },
+},
     Mutation: {
         crearUsuario: async (parent, args) => {
         const usuarioCreado = await UserModel.create({

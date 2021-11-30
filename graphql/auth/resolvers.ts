@@ -7,26 +7,51 @@ const resolversAutenticacion = {
     registro: async (parent, args) => {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(args.contrasena, salt);
-      const usuarioCreado = await UserModel.create({
-        nombre: args.nombre,
-        identificacion: args.identificacion,
-        correo: args.correo,
-        rol: args.rol,
-        contrasena: hashedPassword,
-      });
-     
-      console.log('usuario creado', usuarioCreado);
-      return {
-        token: generateToken({
-          _id: usuarioCreado._id,
-          nombre: usuarioCreado.nombre,
-          identificacion: usuarioCreado.identificacion,
-          correo: usuarioCreado.correo,
-          rol: usuarioCreado.rol,
 
-        }),
-      };
-    },
+      if(Object.keys(args).includes('facultad')){
+        const usuarioCreado = await UserModel.create({
+          nombre: args.nombre,
+          identificacion: args.identificacion,
+          correo: args.correo,
+          rol: args.rol,
+          contrasena: hashedPassword,
+          semestre:args.semestre,
+          facultad:args.facultad
+        });
+        return {
+          token: generateToken({
+            _id: usuarioCreado._id,
+            nombre: usuarioCreado.nombre,
+            identificacion: usuarioCreado.identificacion,
+            correo: usuarioCreado.correo,
+            rol: usuarioCreado.rol,
+            semestre:usuarioCreado.semestre,
+            facultad:usuarioCreado.facultad
+  
+          })
+        }
+      }else{
+        const usuarioCreado = await UserModel.create({
+          nombre: args.nombre,
+          identificacion: args.identificacion,
+          correo: args.correo,
+          rol: args.rol,
+          contrasena: hashedPassword,
+          
+        });
+        return {
+          token: generateToken({
+            _id: usuarioCreado._id,
+            nombre: usuarioCreado.nombre,
+            identificacion: usuarioCreado.identificacion,
+            correo: usuarioCreado.correo,
+            rol: usuarioCreado.rol,
+  
+          }),
+
+      }
+    }
+  },
 
     login: async (parent, args) => {
       const usuarioEncontrado = await UserModel.findOne({ correo: args.correo });
@@ -38,7 +63,11 @@ const resolversAutenticacion = {
             identificacion: usuarioEncontrado.identificacion,
             correo: usuarioEncontrado.correo,
             rol: usuarioEncontrado.rol,
-            estado:usuarioEncontrado.estado
+            estado:usuarioEncontrado.estado,
+            semestre:usuarioEncontrado.semestre,
+            facultad:usuarioEncontrado.facultad,
+            aboutMe: usuarioEncontrado.aboutMe,
+            celular: usuarioEncontrado.celular,
           }),
         };
        

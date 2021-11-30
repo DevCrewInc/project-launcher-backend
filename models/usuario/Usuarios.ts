@@ -10,6 +10,8 @@ interface User {
     estado: Enum_EstadoUsuario,
     facultad: Enum_Facultad,
     semestre: Enum_Semestre,
+    celular: string,
+    aboutMe:string,
     contrasena: string,
     eliminado: boolean
 }
@@ -70,6 +72,14 @@ const UserSchema = new Schema<User>({
     eliminado:{
         type: Boolean,
         default: false,
+    },
+    celular:{
+        type: String,
+        default: "N/A",
+    },
+    aboutMe:{
+        type: String,
+        default: "N/A",
     }
 },
 {

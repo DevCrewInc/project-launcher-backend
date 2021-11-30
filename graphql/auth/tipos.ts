@@ -15,6 +15,8 @@ type Mutation {
       rol: Enum_Rol!
       estado: Enum_EstadoUsuario
       contrasena: String!
+      facultad: Enum_Facultad
+      semestre: Enum_Semestre   
     ):Token!
 
     login(
