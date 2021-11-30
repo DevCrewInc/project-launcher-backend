@@ -45,11 +45,15 @@ type Mutation {
     correo: String!
     facultad: Enum_Facultad!
     semestre: Enum_Semestre!
-    rol: Enum_Rol!
-    estado: Enum_EstadoUsuario
-
-   
+    
     ): Usuario
+
+    editarEstadoUsuario(
+    _id: String!
+    estado: Enum_EstadoUsuario!
+    ): Usuario
+
+
 
     eliminarUsuario(_id: String): Usuario
     

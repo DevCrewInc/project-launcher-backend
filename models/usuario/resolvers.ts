@@ -50,12 +50,16 @@ const resolversUsuario = {
                 correo: args.correo,
                 facultad: args.facultad,
                 semestre: args.semestre,
-                rol: args.rol,
-                estado: args.estado,
 
             },{new: true});
 
             return usuarioEditado;
+        },
+        editarEstadoUsuario:async (parent, args)=>{
+            const usuarioEditado = await UserModel.findByIdAndUpdate(args._id,{
+                estado:args.estado
+            },{new: true})
+            return usuarioEditado
         },
 
         eliminarUsuario: async (parent, args) =>{
@@ -64,6 +68,7 @@ const resolversUsuario = {
                 return usuarioEliminado;
             
         },
+        
     },
 };
     

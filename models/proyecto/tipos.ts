@@ -65,10 +65,16 @@ type Mutation {
 
 
     crearObjetivo(
-        _id: String!
-        descripcion: String!
-        tipo: Enum_TipoObjetivo!
+        IdProyecto: String!
+        campos:crearObjetivo!
     ): Proyecto
+
+    editarObjetivo(
+        IdProyecto: String!
+        indexObjetivo:Int!
+        campos:crearObjetivo!
+    ): Proyecto
+
 
 }
 

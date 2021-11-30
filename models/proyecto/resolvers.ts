@@ -113,17 +113,24 @@ const resolversProyecto = {
     },
 
     crearObjetivo: async (parent, args) => {
-        const objetivoCreado = await ProjectModel.findByIdAndUpdate(args._id,{
+        const objetivoCreado = await ProjectModel.findByIdAndUpdate(args.IdProyecto,{
             $addToSet: {
-                objetivos: {
-                    descripcion: args.descripcion,
-                    tipo: args.tipo,
-                }
+                objetivos: {...args.campos}
             } 
         },{new:true});
         return objetivoCreado;
-    }
+
     },
-};
+    editarObjetivo: async (parent, args) =>{
+        const proyectoEncontrado=await ProjectModel.findById(args.IdProyecto)
+        proyectoEncontrado.objetivos[args.indexObjetivo]={...args.campos}
+        proyectoEncontrado.save()
+        return proyectoEncontrado
+
+    },
+}
+   
+}
+
     
     export { resolversProyecto };

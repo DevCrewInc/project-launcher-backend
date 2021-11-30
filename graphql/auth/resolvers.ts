@@ -23,6 +23,7 @@ const resolversAutenticacion = {
           identificacion: usuarioCreado.identificacion,
           correo: usuarioCreado.correo,
           rol: usuarioCreado.rol,
+
         }),
       };
     },
@@ -37,6 +38,7 @@ const resolversAutenticacion = {
             identificacion: usuarioEncontrado.identificacion,
             correo: usuarioEncontrado.correo,
             rol: usuarioEncontrado.rol,
+            estado:usuarioEncontrado.estado
           }),
         };
        
