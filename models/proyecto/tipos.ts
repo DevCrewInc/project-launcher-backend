@@ -75,6 +75,8 @@ type Mutation {
         campos:crearObjetivo!
     ): Proyecto
 
+    eliminarObjetivo(IdProyecto: String!, idObjetivo: String!): Proyecto
+
 
 }
 

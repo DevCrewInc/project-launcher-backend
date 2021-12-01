@@ -128,6 +128,20 @@ const resolversProyecto = {
         return proyectoEncontrado
 
     },
+    eliminarObjetivo: async (parent, args) => {
+        const proyectoObjetivo = await ProjectModel.findByIdAndUpdate(
+          { _id: args.IdProyecto },
+          {
+            $pull: {
+              objetivos: {
+                _id: args.idObjetivo,
+              },
+            },
+          },
+          { new: true }
+        );
+        return proyectoObjetivo;
+      },
 }
    
 }

@@ -6,7 +6,7 @@ import { UserModel} from '../usuario/Usuarios'
 interface Avance {
     fecha: string;
     descripcion: string;
-    observaciones: [string];
+    observaciones: [{ descripcion: String}];
     proyecto: Schema.Types.ObjectId;
     creadoPor: Schema.Types.ObjectId;
 }

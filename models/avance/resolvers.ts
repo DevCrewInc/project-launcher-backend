@@ -44,11 +44,10 @@ Mutation: {
     },
 
     crearObservacion: async (parent, args) => {
-        const observacionCreada = await ModeloAvance.findByIdAndUpdate(args._id,{
+        const observacionCreada = await ModeloAvance.findByIdAndUpdate(args.IdAvance,{
             $addToSet: {
-                observaciones: {
-                    descripcion: args.descripcion,
-                }
+                observaciones: {...args.campos}
+              
             } 
         },{new:true});
         return observacionCreada;

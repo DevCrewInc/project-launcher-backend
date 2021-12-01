@@ -25,6 +25,8 @@ type Mutation {
         _id: ID!
         estado: Enum_EstadoInscripcion!
     ): Inscripcion
+
+    
 }
 
 `
