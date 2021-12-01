@@ -47,17 +47,46 @@ Mutation: {
         const observacionCreada = await ModeloAvance.findByIdAndUpdate(args.IdAvance,{
             $addToSet: {
                 observaciones: {...args.campos}
-              
             } 
         },{new:true});
         return observacionCreada;
-    }
     },
 
-    // editarObservacion: async (parent, args) => {
-    //     const observacionEditada = await ModeloAvance.findById(args._id)
-    // return observacionEditada;
+    // editarObservacion: async (parent, args) =>{
+    //     const avanceConObservacion = await ModeloAvance.findById(args.IdAvance)
+    //     avanceConObservacion.observaciones[args.indexObservacion] = {...args.campos}
+    //     avanceConObservacion.save()
+    //     console.log(avanceConObservacion.observaciones[args.indexObservacion])
+    //     return avanceConObservacion;
     // },
-}; 
+    editarObservacion: async (parent, args) => {
+        const avanceConObservacion = await ModeloAvance.findByIdAndUpdate(
+            args.IdAvance,
+            {
+            $set: {
+            [`observaciones.${args.indexObservacion}.descripcion`]: args.campos.descripcion
+            },
+        },{ new: true }
+        );
+        return avanceConObservacion;
+    },
+
+    eliminarObservacion: async (parent, args) => {
+        const observacionEliminada = await ModeloAvance.findByIdAndUpdate(
+            { _id: args.IdAvance },
+            {
+                $pull: {
+                    observaciones: {
+                    _id: args.IdObservacion,
+                },
+            },
+            },
+            { new: true }
+        );
+        return observacionEliminada;
+    }   
+}
+};
+    
 
 export { resolversAvance };

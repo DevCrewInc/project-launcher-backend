@@ -20,6 +20,7 @@ descripcion: {
     type: String,
     required: true,
 },
+
 observaciones: [
     {
         descripcion: {

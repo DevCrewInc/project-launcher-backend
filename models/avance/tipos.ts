@@ -7,7 +7,7 @@ type Observaciones {
     descripcion: String!
 }
 
-input crearObservacion {
+input comentarioObservacion {
     descripcion: String!
 }
 
@@ -44,14 +44,21 @@ type Mutation {
 
     crearObservacion(
         IdAvance: String!
-        campos: crearObservacion!
+        campos: comentarioObservacion!
     ): Avance
 
-    # editarObservacion(
-    #     _id: String!
-    #     _id:
-    #     descripcion: String!
-    # ): Avance
+    editarObservacion(
+        IdAvance: String!
+        indexObservacion:Int!
+        # IdObservacion: String!
+        campos: comentarioObservacion!
+    ): Avance
+
+    eliminarObservacion(
+        IdAvance: String!
+        IdObservacion: String!
+    ): Avance
+
 }
 `;
 

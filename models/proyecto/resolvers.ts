@@ -126,8 +126,8 @@ const resolversProyecto = {
         proyectoEncontrado.objetivos[args.indexObjetivo]={...args.campos}
         proyectoEncontrado.save()
         return proyectoEncontrado
-
     },
+    
     eliminarObjetivo: async (parent, args) => {
         const proyectoObjetivo = await ProjectModel.findByIdAndUpdate(
           { _id: args.IdProyecto },
