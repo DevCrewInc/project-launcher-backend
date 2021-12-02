@@ -19,7 +19,7 @@ const resolversUsuario = {
 
     
     SolicitudesNuevosUsuarios: async (parent, args) =>{
-        const usuariosEnEspera = await UserModel.find({ estado: Enum_EstadoUsuario.PENDIENTE});
+        const usuariosEnEspera = await UserModel.find({ estado: Enum_EstadoUsuario.PENDIENTE,eliminado: false});
         return usuariosEnEspera;
     },
     //LIDER  
@@ -29,7 +29,7 @@ const resolversUsuario = {
         return usuariosEnEspera;
     },
     Estudiantes: async (parent, args) =>{
-        const usuariosEnEspera = await UserModel.find({ estado: Enum_EstadoUsuario.AUTORIZADO, rol:Enum_Rol.ESTUDIANTE,eliminado: false});
+        const usuariosEnEspera = await UserModel.find({  rol:Enum_Rol.ESTUDIANTE,eliminado: false});
         return usuariosEnEspera;
 
     },
