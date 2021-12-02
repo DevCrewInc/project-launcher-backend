@@ -18,6 +18,8 @@ type Proyecto {
    _id : ID!
     nombre: String!
     presupuesto: Float!
+    # descripcionProyecto: String,
+    # fechaEstimada: String,
     fechaInicio: String
     fechaFin: String
     estadoProyecto: Enum_EstadoProyecto!
@@ -41,6 +43,8 @@ type Mutation {
     crearProyecto(
         nombre: String!
         presupuesto: Float!
+        # descripcionProyecto: string!
+        # fechaEstimada: string!
         lider: String!
         objetivos: [crearObjetivo]
 

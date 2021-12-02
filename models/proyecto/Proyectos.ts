@@ -4,6 +4,8 @@ import { UserModel } from '../usuario/Usuarios';
 
 interface Project {
   nombre: string,
+  // descripcionProyecto: string,
+  // fechaEstimada: string,
   objetivos: [{ descripcion: String; tipo: Enum_TipoObjetivo }];
   presupuesto: number,
   fechaInicio: string,
@@ -18,6 +20,13 @@ const ProjectSchema = new Schema<Project>({
     type: String,
     required: true,
   },
+  // descripcionProyecto:{
+  //   type: String,
+  //   required:true,
+  // },
+  // fechaEstimada:{
+  //   type: String,
+  // },
   presupuesto: {
     type: Number,
     required: true,

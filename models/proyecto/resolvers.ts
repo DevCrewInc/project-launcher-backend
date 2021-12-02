@@ -35,6 +35,8 @@ const resolversProyecto = {
         const proyectoCreado = await ProjectModel.create({
         nombre: args.nombre,
         presupuesto: args.presupuesto,
+        // descripcionProyecto: args.descripcionProyecto,
+        // fechaEstimada: args.fechaEstimada,
         lider: args.lider,
         objetivos: args.objetivos
         });
