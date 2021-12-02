@@ -22,7 +22,7 @@ type Mutation {
     login(
     correo: String!
     contrasena:String!
-  ):Token!
+  ):Token!  
   }
  
 `;
