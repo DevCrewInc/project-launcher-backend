@@ -32,7 +32,7 @@ type Proyecto {
 
 type Query {
     ListaProyectosAdmin: [Proyecto]
-    ListaProyectosEstudiante: [Proyecto]
+    ListaProyectosEstudiante    : [Proyecto]
     ProyectosEstudiante (_id: String!): [Proyecto]
     ProyectosLider (_id: String!): [Proyecto]
     SolicitudesNuevosProyectos: [Proyecto]

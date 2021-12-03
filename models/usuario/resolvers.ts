@@ -13,7 +13,13 @@ const resolversUsuario = {
         return usuarios;
     },
     Usuario: async (parent, args) => {
-        const usuario = await UserModel.findOne({ _id: args._id });
+        const usuario = await UserModel.findOne({ _id: args._id }).populate({
+            path:"inscripciones",
+            populate: {path:'proyecto' ,populate:{path:"lider"}}
+        }).populate({
+            path:"inscripciones",
+            populate: {path:'proyecto',populate:{path:"avances",populate:{path:"observaciones"}}}
+        });
         return usuario;
     },
 
@@ -33,6 +39,7 @@ const resolversUsuario = {
         return usuariosEnEspera;
 
     },
+
 },
     Mutation: {
         crearUsuario: async (parent, args) => {

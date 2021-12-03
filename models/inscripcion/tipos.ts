@@ -12,6 +12,7 @@ type Inscripcion{
 
 type Query {
     Inscripciones: [Inscripcion]
+    ProyectosNoInscritos(estudiante:String):[Inscripcion]
 
 }
 
@@ -25,6 +26,7 @@ type Mutation {
         _id: ID!
         estado: Enum_EstadoInscripcion!
     ): Inscripcion
+    eliminarInscripcion(_id:String!):Inscripcion
 
     
 }

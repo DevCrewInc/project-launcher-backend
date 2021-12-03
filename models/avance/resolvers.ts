@@ -1,3 +1,5 @@
+import { Enum_FaseProyecto } from '../enums/Enums';
+import { ProjectModel } from '../proyecto/Proyectos';
 import { ModeloAvance } from './Avances';
 
 const resolversAvance = {
@@ -21,11 +23,16 @@ Mutation: {
             proyecto: args.proyecto,
             creadoPor: args.creadoPor,
     });
+    const DesarolloProyecto = await ProjectModel.findById(args.proyecto)
+    if(DesarolloProyecto.faseProyecto==="INICIADO"){
+        DesarolloProyecto.faseProyecto=Enum_FaseProyecto.DESARROLLO
+        DesarolloProyecto.save()
+    }
+
     return avanceCreado;
     },
 
     editarAvance: async (parent, args) => {
-        console.log(args)
         const avanceEditado = await ModeloAvance.findByIdAndUpdate(args._id, {
             descripcion: args.descripcion,
     },{new: true});
@@ -33,7 +40,6 @@ Mutation: {
     },
 
     eliminarAvance: async(parent,args) => {
-        console.log(args)
         if (Object.keys(args).includes('_id')){
             const usuarioEliminado = await ModeloAvance.findOneAndDelete({ _id: args._id});
             return usuarioEliminado;

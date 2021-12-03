@@ -7,6 +7,11 @@ const resolverInscripciones = {
             const inscripciones = await InscriptionModel.find().populate('estudiante').populate('proyecto');
             return inscripciones;
         },
+        ProyectosNoInscritos: async(parent,args)=>{
+            const misInscripciones = await InscriptionModel.find().populate('proyecto')
+            return misInscripciones;
+        }
+        
     },
     Mutation:{
         crearInscripcion: async (parent, args) => {
@@ -36,10 +41,12 @@ const resolverInscripciones = {
                 },{new:true});
                 return inscripcionActualizada;
             }
-
-            
-
+        },
+        eliminarInscripcion : async(parent, args)=>{
+            const eliminar = await InscriptionModel.findByIdAndDelete(args._id)
+            return eliminar
         }
+       
     },
 
 }
