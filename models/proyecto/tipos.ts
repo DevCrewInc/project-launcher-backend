@@ -36,6 +36,7 @@ type Query {
     ProyectosEstudiante (_id: String!): [Proyecto]
     ProyectosLider (_id: String!): [Proyecto]
     SolicitudesNuevosProyectos: [Proyecto]
+    Proyecto(_id: String!): Proyecto
     
 }
 

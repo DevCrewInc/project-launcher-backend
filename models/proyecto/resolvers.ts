@@ -13,6 +13,7 @@ const resolversProyecto = {
         const proyectos = await ProjectModel.find({faseProyecto: Enum_FaseProyecto.NULO}).populate('lider');
         return proyectos;
     },
+    
 //ESTUDIANTE
     ListaProyectosEstudiante: async (parent, args) => {
        
@@ -33,6 +34,17 @@ const resolversProyecto = {
         const proyectos = await ProjectModel.find({lider: args._id}).populate('lider').populate('avances').populate('inscripciones');
         return proyectos;
     },
+    Proyecto: async (parent, args) => {
+        const proyecto= await  ProjectModel.findOne({_id: args._id}).populate('lider').populate({
+            path:'avances',
+            populate:{path:'creadoPor'}
+        }).populate({
+            path:'inscripciones',
+            populate:{path:'estudiante'}
+        });
+        return proyecto;
+    }
+
 
     },
     Mutation: {
