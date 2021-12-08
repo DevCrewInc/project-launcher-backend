@@ -19,6 +19,7 @@ Mutation: {
     crearAvance: async (parent, args) => {
         const avanceCreado = await ModeloAvance.create({
             fecha: new Date().toISOString().split("T")[0],
+            tituloAvance: args.tituloAvance,
             descripcion: args.descripcion,
             proyecto: args.proyecto,
             creadoPor: args.creadoPor,
@@ -34,6 +35,7 @@ Mutation: {
 
     editarAvance: async (parent, args) => {
         const avanceEditado = await ModeloAvance.findByIdAndUpdate(args._id, {
+            tituloAvance: args.tituloAvance,
             descripcion: args.descripcion,
     },{new: true});
     return avanceEditado;
@@ -49,11 +51,12 @@ Mutation: {
         }
     },
 
+    //LIDER
+
     crearObservacion: async (parent, args) => {
         const observacionCreada = await ModeloAvance.findByIdAndUpdate(args.IdAvance,{
-            $addToSet: {
-                observaciones: {...args.campos}
-            } 
+           observaciones: args.observaciones
+            
         },{new:true});
         return observacionCreada;
     },
@@ -67,29 +70,18 @@ Mutation: {
     // },
     editarObservacion: async (parent, args) => {
         const avanceConObservacion = await ModeloAvance.findByIdAndUpdate(
-            args.IdAvance,
-            {
-            $set: {
-            [`observaciones.${args.indexObservacion}.descripcion`]: args.campos.descripcion
-            },
+            args.IdAvance,{
+            observaciones: args.observaciones
         },{ new: true }
         );
         return avanceConObservacion;
     },
 
     eliminarObservacion: async (parent, args) => {
-        const observacionEliminada = await ModeloAvance.findByIdAndUpdate(
-            { _id: args.IdAvance },
-            {
-                $pull: {
-                    observaciones: {
-                    _id: args.IdObservacion,
-                },
-            },
-            },
-            { new: true }
-        );
+        const observacionEliminada = await ModeloAvance.findByIdAndUpdate({_id: args.IdAvance},
+             { $unset: { observaciones: args.observaciones} },  { new: true });
         return observacionEliminada;
+       
     }   
 }
 };

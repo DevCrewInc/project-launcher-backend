@@ -5,10 +5,12 @@ import { UserModel} from '../usuario/Usuarios'
 
 interface Avance {
     fecha: string;
+    tituloAvance:string;
     descripcion: string;
-    observaciones: [{ descripcion: String}];
+    observaciones: string;
     proyecto: Schema.Types.ObjectId;
     creadoPor: Schema.Types.ObjectId;
+  
 }
 
 const avanceSchema = new Schema<Avance>({
@@ -16,19 +18,21 @@ fecha: {
     type: String,
     required: true,
 },
+tituloAvance:{
+    type: String,
+    required: true,
+},
+
 descripcion: {
     type: String,
     required: true,
 },
 
-observaciones: [
-    {
-        descripcion: {
-            type: String,
-            required: true,
-        },
-    }
-],
+observaciones: {
+    type: String,
+    required: false,      
+},
+
 
 proyecto: {
     type: Schema.Types.ObjectId,

@@ -7,15 +7,14 @@ type Observaciones {
     descripcion: String!
 }
 
-input comentarioObservacion {
-    descripcion: String!
-}
+
 
 type Avance {
     _id: ID!
     fecha: String!
+    tituloAvance: String!
     descripcion: String!
-    observaciones: [Observaciones]
+    observaciones: String
     proyecto: Proyecto!
     creadoPor: Usuario!
 }
@@ -27,6 +26,7 @@ type Query {
 
 type Mutation {
     crearAvance(
+        tituloAvance:String!,
         descripcion: String!, 
         proyecto: String!, 
         creadoPor: String!
@@ -34,6 +34,7 @@ type Mutation {
 
     editarAvance(
         _id: ID!
+        tituloAvance:String!
         descripcion: String!
     ): Avance
 
@@ -44,19 +45,17 @@ type Mutation {
 
     crearObservacion(
         IdAvance: String!
-        campos: comentarioObservacion!
+        observaciones: String!
     ): Avance
 
     editarObservacion(
         IdAvance: String!
-        indexObservacion:Int!
-        # IdObservacion: String!
-        campos: comentarioObservacion!
+        observaciones: String!
     ): Avance
 
     eliminarObservacion(
         IdAvance: String!
-        IdObservacion: String!
+        observaciones: String!
     ): Avance
 
 }
