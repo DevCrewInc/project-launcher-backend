@@ -17,17 +17,13 @@ const resolversProyecto = {
 //ESTUDIANTE
     ListaProyectosEstudiante: async (parent, args) => {
        
-        const proyectos = await ProjectModel.find({estadoProyecto: Enum_EstadoProyecto.ACTIVO }).populate('lider').populate('avances').populate('inscripciones');
+        const proyectos = await ProjectModel.find({estadoProyecto: Enum_EstadoProyecto.ACTIVO }).populate('lider').populate('avances').populate({
+            path:'inscripciones',
+            populate :{path:"estudiante"}
+        });
         return proyectos;
     },
-    ProyectosEstudiante: async (parent, args) => {
-        
-        const misProyectos = await ProjectModel.find({inscripcion:"61aa2a66bd386bedf0debbc2",_id:"61a8c1241e04677c2550aebc"}).populate({
-            path:"inscripciones",
-            // match:{estudiante:args.estudiante}
-        });
-        return misProyectos;
-    },
+
 
 //LIDER
     ProyectosLider: async (parent, args) => {
