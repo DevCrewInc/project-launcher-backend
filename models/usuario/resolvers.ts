@@ -1,3 +1,4 @@
+import { argsToArgsConfig } from "graphql/type/definition";
 import { Enum_EstadoUsuario, Enum_Rol } from "../enums/Enums";
 import { UserModel } from "./Usuarios"
 
@@ -20,6 +21,10 @@ const resolversUsuario = {
             path:"inscripciones",
             populate: {path:'proyecto',populate:{path:"avances",populate:{path:"observaciones"}}}
         });
+        return usuario;
+    },
+        UsuarioInfo: async (parent, args) => {
+        const usuario = await UserModel.findOne({ _id: args._id })
         return usuario;
     },
 
@@ -60,18 +65,18 @@ const resolversUsuario = {
         },
 
         editarUsuario: async (parent, args) => {
-            // const liderProyecto = await UserModel.findOne({_id: args._id }).populate('proyectosLiderados')
-            // console.log( JSON.stringify(liderProyecto))
-            const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
-                nombre: args.nombre,
-                identificacion: args.identificacion,
-                correo: args.correo,
-                facultad: args.facultad,
-                semestre: args.semestre,
-
-            },{new: true});
-
-            return usuarioEditado;
+            if (Object.keys(args).includes('celular')) {
+                const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
+                    celular:args.celular,
+                },{new: true});
+                return usuarioEditado;
+            }
+            if (Object.keys(args).includes('aboutMe')) {
+                const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
+                    aboutMe:args.aboutMe,
+                },{new: true});
+                return usuarioEditado;
+            }
         },
         editarEstadoUsuario:async (parent, args)=>{
             const usuarioEditado = await UserModel.findByIdAndUpdate(args._id,{

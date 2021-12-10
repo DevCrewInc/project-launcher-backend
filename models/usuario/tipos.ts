@@ -9,13 +9,15 @@ type Usuario {
     nombre: String!
     identificacion: String!
     correo: String!
-    facultad: Enum_Facultad!
-    semestre: Enum_Semestre!
+    facultad: Enum_Facultad
+    semestre: Enum_Semestre
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
     proyectosLiderados: [Proyecto]
     inscripciones: [Inscripcion]
     avancesCreados: [Avance]
+    celular:String
+    aboutMe:String
     
 }
 
@@ -23,6 +25,7 @@ type Usuario {
 type Query {
     Usuarios: [Usuario]
     Usuario(_id: String!): Usuario
+    UsuarioInfo(_id: String!): Usuario
     Estudiantes:[Usuario]
     SolicitudesNuevosUsuarios: [Usuario]
     SolicitudesNuevosEstudiantes:[Usuario]
@@ -42,13 +45,9 @@ type Mutation {
     ): Usuario
 
     editarUsuario(
-    _id: String!
-    nombre: String!
-    identificacion: String!
-    correo: String!
-    facultad: Enum_Facultad!
-    semestre: Enum_Semestre!
-    
+        _id:String!
+        celular:String
+        aboutMe : String
     ): Usuario
 
     editarEstadoUsuario(

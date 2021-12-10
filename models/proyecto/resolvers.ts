@@ -65,9 +65,10 @@ const resolversProyecto = {
 
             nombre: args.nombre,
             presupuesto: args.presupuesto,
-            objetivos: args.objetivos,
+            descripcionProyecto:args.descripcionProyecto
 
         },{new: true});
+
         return proyectoEditado;
     },
     editarEstadoProyecto: async (parent,args)=>{
@@ -136,6 +137,7 @@ const resolversProyecto = {
         return objetivoCreado;
 
     },
+
     editarObjetivo: async (parent, args) =>{
         const proyectoEncontrado=await ProjectModel.findById(args.IdProyecto)
         proyectoEncontrado.objetivos[args.indexObjetivo]={...args.campos}

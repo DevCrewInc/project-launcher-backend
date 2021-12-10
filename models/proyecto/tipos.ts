@@ -58,8 +58,7 @@ type Mutation {
         _id: String!
         nombre: String!
         presupuesto: Float!
-        objetivos: [crearObjetivo]!
-
+        descripcionProyecto:String!
     ): Proyecto
 
     editarEstadoProyecto(
