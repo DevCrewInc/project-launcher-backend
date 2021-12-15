@@ -116,6 +116,7 @@ const resolversProyecto = {
                 estadoProyecto:args.estadoProyecto
 
             },{new:true});
+            await InscriptionModel.deleteMany({proyecto:args._id})
             return proyectoEditado
         }
         

@@ -77,6 +77,11 @@ const resolversAutenticacion = {
       }
     },
 
+    // editarContrasena: async (parent, args) => {
+    //   const contrasenaEditada = await UserModel.findByIdAndUpdate(args._id,{
+    //     contrasena
+    //   });
+
     // refreshToken: async (parent, args, context) => {
     //   console.log('contexto', context);
     //   if (!context.userData) {

@@ -31,7 +31,7 @@ enum Enum_Facultad {
 enum Enum_Semestre {
     PRIMERO = "PRIMERO",
     SEGUNDO = "SEGUNDO",
-    TERCERO = "TERCERO ",
+    TERCERO = "TERCERO",
     CUARTO = "CUARTO",
     QUINTO = "QUINTO",
     SEXTO = "SEXTO",

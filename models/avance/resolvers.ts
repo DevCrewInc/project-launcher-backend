@@ -79,12 +79,12 @@ Mutation: {
 
     eliminarObservacion: async (parent, args) => {
         const observacionEliminada = await ModeloAvance.findByIdAndUpdate({_id: args.IdAvance},
-             { $unset: { observaciones: args.observaciones} },  { new: true });
+            { $unset: { observaciones: args.observaciones} },  { new: true });
         return observacionEliminada;
-       
-    }   
+
+    }
 }
 };
-    
+
 
 export { resolversAvance };

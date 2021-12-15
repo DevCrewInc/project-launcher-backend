@@ -16,13 +16,24 @@ type Mutation {
       estado: Enum_EstadoUsuario
       contrasena: String!
       facultad: Enum_Facultad
-      semestre: Enum_Semestre   
+      semestre: Enum_Semestre
     ):Token!
 
     login(
     correo: String!
     contrasena:String!
-  ):Token!  
+    
+  ):Token!
+
+  # editarContrasena(
+  #   _id : String!
+  #   contrasena: String!
+  # ): Token!
+
+    # editarPerfil(
+    #   _id: String!
+
+    # )
   }
  
 `;
