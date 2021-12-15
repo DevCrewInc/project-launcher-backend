@@ -18,6 +18,7 @@ type Usuario {
     avancesCreados: [Avance]
     celular:String
     aboutMe:String
+    contrasena:String
     
 }
 
@@ -49,6 +50,13 @@ type Mutation {
         celular:String
         aboutMe : String
     ): Usuario
+    
+    editarContrasena(
+        _id:String!
+        contrasena:String!
+        contrasenaNueva: String!
+    ): Boolean
+    
 
     editarEstadoUsuario(
     _id: String!

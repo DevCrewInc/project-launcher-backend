@@ -1,6 +1,7 @@
 import { argsToArgsConfig } from "graphql/type/definition";
 import { Enum_EstadoUsuario, Enum_Rol } from "../enums/Enums";
 import { UserModel } from "./Usuarios"
+import bcrypt from 'bcrypt';
 
 const resolversUsuario = {
     Query: {
@@ -83,6 +84,19 @@ const resolversUsuario = {
                 estado:args.estado
             },{new: true})
             return usuarioEditado
+        },
+
+        editarContrasena:async (parent, args)=>{
+            const usuarioEncontrado = await UserModel.findById(args._id);
+            if (await bcrypt.compare(args.contrasena, usuarioEncontrado.contrasena)){
+                const salt = await bcrypt.genSalt(10);
+                const hashedPassword = await bcrypt.hash(args.contrasenaNueva, salt);
+
+                usuarioEncontrado.contrasena=hashedPassword;
+                usuarioEncontrado.save();
+                return true
+            }
+            return false
         },
 
         eliminarUsuario: async (parent, args) =>{
